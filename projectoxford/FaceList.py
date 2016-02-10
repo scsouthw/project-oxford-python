@@ -36,7 +36,7 @@ class FaceList(Base):
 
         if targetFace is not None:
             params['targetFace'] = targetFace
-   
+
         if userData is not None:
             params['userData'] = userData
 
@@ -102,7 +102,7 @@ class FaceList(Base):
         return self._invoke('put',
                             _faceListUrl + '/' + faceListId,
                             json=body,
-                            headers={'Ocp-Apim-Subscription-Key': self.key})         
+                            headers={'Ocp-Apim-Subscription-Key': self.key})
 
     def delete(self, faceListId):
         """Deletes an existing Face List.
@@ -130,26 +130,6 @@ class FaceList(Base):
                             _faceListUrl + '/' + faceListId,
                             headers={'Ocp-Apim-Subscription-Key': self.key})
 
-
-    # def createOrUpdate(self, personGroupId, faceIds, name, userData=None):
-    #     """Creates or updates a person's information.
-
-    #     Args:
-    #         personGroupId (str). The target person's person group.
-    #         faceIds ([str]). Array of face id's for the target person.
-    #         name (str). Target person's display name. The maximum length is 128.
-    #         userData (str). Optional fields for user-provided data attached to a person. Size limit is 16KB.
-
-    #     Returns:
-    #         object. The resulting JSON
-    #     """
-    #     persons = self.list(personGroupId)
-    #     for person in persons:
-    #         if person['name'] == name:
-    #             self.update(personGroupId, person['personId'], faceIds, name, userData)
-    #             return person
-
-    #     return self.create(personGroupId, faceIds, name, userData)
 
     def list(self):
         """List Face Lists.
