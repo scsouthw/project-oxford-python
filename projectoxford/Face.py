@@ -1,6 +1,7 @@
 from .Base import Base
 from .Person import Person
 from .PersonGroup import PersonGroup
+from .FaceList import FaceList
 
 _detectUrl = 'https://api.projectoxford.ai/face/v0/detections'
 _similarUrl = 'https://api.projectoxford.ai/face/v0/findsimilars'
@@ -20,7 +21,8 @@ class Face(Base):
         Base.__init__(self, key)
         self.person = Person(self.key)
         self.personGroup = PersonGroup(self.key)
-
+        self.faceList = FaceList(self.key)
+        
     def detect(self, options):
         """Detects human faces in an image and returns face locations, face landmarks, and
         optional attributes including head-pose, gender, and age. Detection is an essential
@@ -136,4 +138,4 @@ class Face(Base):
             'faceId2': faceId2
         }
 
-        return self._invoke('post', _verifyUrl, json=body, headers={'Ocp-Apim-Subscription-Key': self.key})
+        return self._invoke('post', _verifyUrl, json=body, headers={'Ocp-Apim-Subscription-Key': self.key})  
