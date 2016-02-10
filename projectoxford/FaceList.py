@@ -31,17 +31,17 @@ class FaceList(Base):
             object. The resulting JSON
         """
         params = {
-            'faceListId' : faceListId
+            'faceListId': faceListId
         }
 
         if targetFace is not None:
             params['targetFace'] = targetFace
-                    
+   
         if userData is not None:
             params['userData'] = userData
 
         uri = _faceListUrl + '/' + faceListId + '/persistedFaces'
-        
+
         return Base._postWithOptions(self, uri, options, params)
 
     def deleteFace(self, faceListId, persistedFaceId):
@@ -77,7 +77,7 @@ class FaceList(Base):
 
         if userData is not None:
             body['userData'] = userData
-            
+
         uri = _faceListUrl + '/' + faceListId
         return self._invoke('patch', uri, json=body, headers={'Ocp-Apim-Subscription-Key': self.key})
 
@@ -102,8 +102,7 @@ class FaceList(Base):
         return self._invoke('put',
                             _faceListUrl + '/' + faceListId,
                             json=body,
-                            headers={'Ocp-Apim-Subscription-Key': self.key})
-                            
+                            headers={'Ocp-Apim-Subscription-Key': self.key})         
 
     def delete(self, faceListId):
         """Deletes an existing Face List.
