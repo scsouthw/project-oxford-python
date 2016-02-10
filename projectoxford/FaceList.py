@@ -71,7 +71,7 @@ class FaceList(Base):
             object. The resulting JSON
         """
 
-       	body = {
+        body = {
             'name': name
         }
 
@@ -129,7 +129,6 @@ class FaceList(Base):
         return self._invoke('get',
                             _faceListUrl + '/' + faceListId,
                             headers={'Ocp-Apim-Subscription-Key': self.key})
-
 
     def list(self):
         """List Face Lists.
