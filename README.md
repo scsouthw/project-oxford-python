@@ -18,7 +18,7 @@ $ pip install projectoxford
 
 ## Usage ##
 
->**Note**: before you can send data to you will need an API key. There is are separate API keys for face and vision.
+>**Note**: before you can send data to you will need an API key. There are separate API keys for face and vision.
 
 **Initialize a client**
 ```python
@@ -93,7 +93,7 @@ client.face.personGroup.delete(personGroup)
 	```
 	git tag <version number> -m "update tag version"
 	git push --tags origin master
-	python setup.py register -r pypi
+	python setup.py register -r pypi # first time only
 	python setup.py sdist upload
 	```
 
